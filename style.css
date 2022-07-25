@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+
+:root{
+    --main-bg-color: #ffd6ff;
+    --heading-font-color: #b388eb;
+    --gameboard-bg-color: #ffb3c1;
+    --box-font-color: #fffffc;
+    --box-border-color: #c9184a;
+}
+body{
+    margin: 0;
+    font:18px;
+    background-color: var(--main-bg-color);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.main-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8rem;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    font-size: 3rem;
+    font-weight: 500;
+}
+
+.gameboard{
+    width: 23rem;
+    height: 23rem;
+    text-align: center;
+    background-color: var(--gameboard-bg-color);
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    align-items: center;
+    border-radius: 10%;
+}
+
+.box{
+    color: var(--box-font-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 7.6rem;
+    font-size: 3rem;
+    font-weight: 800;
+    text-align: center;
+    border-right: 2px solid var(--box-border-color);
+    border-bottom: 2px solid var(--box-border-color);
+}
+
+.box:nth-of-type(3n){
+    border-right: none;
+}
+
+.box:nth-of-type(7),.box:nth-of-type(8),.box:nth-of-type(9){
+    border-bottom: none;
+}
