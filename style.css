@@ -6,6 +6,9 @@
     --gameboard-bg-color: #ffb3c1;
     --box-font-color: #fffffc;
     --box-border-color: #c9184a;
+    --replaybtn-font-color: #ff8fa3;
+    --replaybtn-color: #eac4d5;
+    --replaybtn-border-color: #ff4d6d;
 }
 body{
     margin: 0;
@@ -19,7 +22,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 6rem;
+    gap: 3rem;
 }
 
 header{
@@ -71,4 +74,19 @@ header{
 .gameStatus{
     font-size: 1.2rem;
     font-weight: 900;
+}
+
+#reset_btn{
+    /* display: none; */
+    font-size: 1.3rem;
+    width: 7em;
+    background-color: var(--replaybtn-color);
+    color: var(--replaybtn-font-color);
+    font-weight: 600;
+    border: 3px solid var(--replaybtn-border-color);
+    border-radius: 10px;
+}
+
+#reset_btn:hover{
+    color:#c9184a;
 }

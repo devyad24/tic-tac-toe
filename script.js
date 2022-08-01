@@ -9,7 +9,7 @@ const player = (playerName) => {
     return {getPlayerName};
 }
 const gameControl = (() => {
-    const gbarray = gameBoard.tictacArr;
+    let gbarray = gameBoard.tictacArr;
     const boxesArr = Array.from(gameBoard.boxes);
     const currentTurn = document.querySelector(".gameStatus");
     let isGameOver = false;
@@ -45,6 +45,8 @@ const gameControl = (() => {
         {
             currentTurn.textContent = `${playerX} Won!`;
             isGameOver = true;
+            gbarray = [];
+            resetBtn.textContent = `Play Again`;
         }
         else if((boxesArr[0].textContent===playerO && boxesArr[1].textContent===playerO && boxesArr[2].textContent===playerO) || (boxesArr[0].textContent===playerO && boxesArr[3].textContent===playerO && boxesArr[6].textContent===playerO) || 
         (boxesArr[6].textContent===playerO && boxesArr[7].textContent===playerO && boxesArr[8].textContent===playerO) || (boxesArr[2].textContent===playerO && boxesArr[5].textContent===playerO && boxesArr[8].textContent===playerO) ||
@@ -53,11 +55,28 @@ const gameControl = (() => {
         {
             currentTurn.textContent = `${playerO} Won!`;
             isGameOver = true;
+            gbarray = [];
+            resetBtn.textContent = `Play Again`;
         }
         else if(gbarray.length===9){
             currentTurn.textContent = `Game Tied`;
             isGameOver = true; 
+            gbarray = [];
+            resetBtn.textContent = `Play Again`;
         }
     }
+    function resetGame(e){
+        gbarray = [];
+        gameBoard.boxes.forEach(box => box.textContent = "");
+        currentTurn.textContent = `Player X's turn`;
+        isGameOver = false;
+        e.target.textContent = `Restart`;
+        _playerTurn();
+    }
+
+    const resetBtn = document.querySelector("#reset_btn");
+    resetBtn.addEventListener('click', resetGame);
+
     _playerTurn();
+    return {gbarray};
 })();
