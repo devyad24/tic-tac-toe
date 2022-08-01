@@ -31,6 +31,7 @@ const gameControl = (() => {
                 _displayTurn(playerA.getPlayerName);
             }
         }
+        if(gbarray.length===1) resetBtn.style.display = "block";
         _winCondition(playerA.getPlayerName,playerB.getPlayerName);
         }))
     }
